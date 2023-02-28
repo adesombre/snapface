@@ -1,7 +1,14 @@
-<div class="face-snap-card">
-	<h2>{{title}}</h2>
-	<p>mise en ligne {{createDate}}</p>
-	<img [src]="imageUrl"[alt]="title">
-	<p>{{description}}</p>
-	<p>snaps {{snaps}}</p>
+<div class="face-snap-card" [ngClass]="{snapped:buttonText==='Opps, unSnap'}">
+	<p>{{4346256.36 | number: '1.0-2'}}</p>
+	<p>{{0.33 | percent: '1.2-2'}}</p>
+	<p>{{4346256.36 | currency: 'EUR':"code"}}</p>
+	<h2>{{snapFace.title |titlecase}}</h2>
+	<p>mise en ligne {{snapFace.createDate |date:'EEEE, MMMM d, y, h:mm:ss a zzzz'}}</p>
+	<img [src]="snapFace.imageUrl"[alt]="snapFace.title">
+	<p>{{ snapFace.description}}</p>
+	<p *ngIf="snapFace.location">photo prise en {{snapFace.location}}</p>
+	<p>
+		<button (click)="onSnap()">{{buttonText}}</button>
+		<span [ngStyle]="{color: 'rgb(0,' + snapFace.snaps *10 +',0)'}">snaps {{snapFace.snaps}}</span> 
+	</p>
 </div>
