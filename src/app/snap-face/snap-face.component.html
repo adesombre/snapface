@@ -3,12 +3,6 @@
 	<p>{{0.33 | percent: '1.2-2'}}</p>
 	<p>{{4346256.36 | currency: 'EUR':"code"}}</p>
 	<h2>{{snapFace.title |titlecase}}</h2>
-	<p>mise en ligne {{snapFace.createDate |date:'EEEE, MMMM d, y, h:mm:ss a zzzz'}}</p>
-	<img [src]="snapFace.imageUrl"[alt]="snapFace.title">
 	<p>{{ snapFace.description}}</p>
-	<p *ngIf="snapFace.location">photo prise en {{snapFace.location}}</p>
-	<p>
-		<button (click)="onSnap()">{{buttonText}}</button>
-		<span [ngStyle]="{color: 'rgb(0,' + snapFace.snaps *10 +',0)'}">snaps {{snapFace.snaps}}</span> 
-	</p>
+	<button (click)="onViewFaceSnap()">VIEW</button>
 </div>
